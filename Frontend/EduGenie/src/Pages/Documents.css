@@ -1,0 +1,231 @@
+/* ==========================================================================
+   Theme Variables — Integrated with Layout.jsx Light/Dark toggles
+   ========================================================================== */
+:root, .light {
+  --primary-green: #10b981;
+  --primary-hover: #059669;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --table-header-bg: #fafafa;
+  --hover-row-bg: #f8fafc;
+}
+
+/* Dynamic theme overrides when Layout.jsx appends the .dark class */
+.dark {
+  --bg-main: #0f172a;
+  --card-bg: #1e293b;
+  --text-dark: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --table-header-bg: #1e293b;
+  --hover-row-bg: #334155;
+}
+
+.study-materials-container {
+  padding: 8px 0 24px 0; /* Reduced top padding since Layout top-bar covers it */
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Hidden to avoid layout duplicate headers with top bar in Layout.jsx
+*/
+.page-header {
+  display: none; 
+}
+
+/* ==========================================================================
+   Global Action Buttons
+   ========================================================================== */
+.btn-primary {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+}
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-secondary {
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+}
+.btn-secondary:hover { background-color: var(--hover-row-bg); }
+
+/* ==========================================================================
+   Interactive Upload Drop Zone Dashboard Panel
+   ========================================================================== */
+.upload-drop-zone {
+  border: 2px dashed var(--border-color);
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+  margin-bottom: 32px;
+  transition: all 0.2s ease;
+}
+.upload-drop-zone.dragging {
+  border-color: var(--primary-green);
+  background-color: rgba(16, 185, 129, 0.08);
+}
+.folder-icon { font-size: 48px; margin-bottom: 16px; }
+.upload-drop-zone h3 { margin: 0 0 8px 0; font-size: 18px; color: var(--text-dark); }
+.upload-drop-zone .subtitle { color: var(--text-muted); font-size: 14px; margin: 0 0 24px 0; }
+.drop-zone-actions { display: flex; justify-content: center; gap: 12px; }
+
+/* ==========================================================================
+   Main Content Tables & Filtration Card Blocks
+   ========================================================================== */
+.documents-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden; /* Keeps headers cleanly clipped inside card boundaries */
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+.card-title-area { display: flex; align-items: center; gap: 12px; }
+.card-title-area h3 { margin: 0; font-size: 16px; color: var(--text-dark); }
+
+.count-badge {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--primary-green);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.filter-controls { display: flex; gap: 12px; }
+
+.search-input {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  min-width: 200px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: var(--primary-green);
+}
+
+.status-dropdown {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+.status-dropdown:focus {
+  border-color: var(--primary-green);
+}
+
+/* ==========================================================================
+   CSS Grid Structural Definitions
+   ========================================================================== */
+.grid-row {
+  display: grid;
+  grid-template-columns: 2.8fr 1.2fr 1.2fr 0.8fr 0.8fr 1.8fr; /* Micro-adjusted spacing */
+  column-gap: 16px;
+  align-items: center;
+}
+
+.table-header {
+  padding: 14px 20px;
+  background-color: var(--table-header-bg);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.table-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  transition: background-color 0.1s ease;
+}
+.table-item:last-child { border-bottom: none; }
+.table-item:hover {
+  background-color: var(--hover-row-bg);
+}
+
+/* Structural alignments helper blocks */
+.vertical-center { display: flex; align-items: center; }
+.center-text { text-align: center; justify-content: center; }
+
+.doc-meta { display: flex; align-items: center; gap: 12px; }
+.doc-icon {
+  font-size: 20px;
+  background-color: rgba(245, 158, 11, 0.15); /* Soft background fallback */
+  padding: 8px;
+  border-radius: 6px;
+}
+.doc-details { display: flex; flex-direction: column; }
+.doc-name { font-weight: 500; color: var(--text-dark); }
+.doc-sub { font-size: 12px; color: var(--text-muted); }
+
+/* Status Badges */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.status-tag.indexed { background-color: rgba(16, 185, 129, 0.15); color: #10b981; }
+.status-tag.processing { background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.status-tag .dot { font-size: 8px; }
+
+/* Interactive Row Action Fields */
+.action-buttons { gap: 8px; justify-content: flex-end; }
+.action-btn {
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-dark);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.1s ease;
+}
+.chat-btn:hover { background-color: var(--hover-row-bg); border-color: var(--text-muted); }
+
+.icon-btn { padding: 6px 8px; color: var(--text-muted); }
+.icon-btn:hover { color: var(--text-dark); background: var(--hover-row-bg); }
+.icon-btn.delete:hover { color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: #ef4444; }
+
+.no-data { padding: 40px; text-align: center; color: var(--text-muted); background: var(--card-bg); }

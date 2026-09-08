@@ -1,0 +1,13 @@
+# Environment variables / secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+
+# VS Code
+.vscode/
